@@ -2,8 +2,8 @@
 
 <h1>Our Technological Products</h1> <br>
 
-<table class="table">
-  <thead class="thead-dark">
+<table class="table table-striped">
+  <thead>
     <tr>
       <th scope="col">Name</th>
       <th scope="col">Price</th>
@@ -13,16 +13,20 @@
   </thead>
 
   <tbody>
-    <% @products.each do |product| %>
+    <% @product.each do |product| %>
       <tr>
-        <td><%= product.name %></td>
+        <td><%= link_to product.name, product_path(product) %></td>
         <td><%= product.price %></td>
         <td><%= product.description %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "Edit", product_path(product) %></td>
+        <td><%= link_to "Delete", product_path(product), :confirm => "sure?", :method => :delete %></td>
       </tr>
+
+
     <% end %>
+
+
+
   </tbody>
 </table>
 
