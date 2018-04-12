@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Our Technological Products</h1> <br>
+<em><h1 class="text-center"> Our Technological Products</h1> </em><br>
 
 <table class="table table-striped">
   <thead>
@@ -11,22 +11,17 @@
       <th scope="col"></th>
     </tr>
   </thead>
-
   <tbody>
+
     <% @product.each do |product| %>
       <tr>
         <td><%= link_to product.name, product_path(product) %></td>
         <td><%= product.price %></td>
         <td><%= product.description %></td>
-        <td><%= link_to "Edit", product_path(product) %></td>
-        <td><%= link_to "Delete", product_path(product), :confirm => "sure?", :method => :delete %></td>
+        <td><%= link_to 'Destroy',product_path(product), :method => :delete %> </td>
       </tr>
 
-
     <% end %>
-
-
-
   </tbody>
 </table>
 
